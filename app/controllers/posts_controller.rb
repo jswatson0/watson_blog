@@ -11,4 +11,35 @@ def show
 	@post = Post.find(params[:id])
 end
 
+def new
+	@post = Post.new
+end
+
+def create
+	@post = Post.new(params[:post])
+	if @post.save
+		redirect_to @post
+	else
+		render action: 'new'
+	end
+end
+
+def edit
+	@post = Post.find(params[:id])
+
+end
+
+def update
+	@post = Post.find(params[:id])
+
+	respond_to do |format|
+	  if @post.update_attributes(params[:post])
+	  	format.html { redirect_to @post, notice: 'Yo shit be updated'}
+		else
+			render action: 'edit'
+		end
+	end
+end
+
+
 end
