@@ -2,5 +2,4 @@
 %h1= "#{@name}'s Blog"
 
 - @posts.each do |t|
-	%h3= "#{t.title}" 
-	%p= "#{t.body}"
+	%h3= link_to t.title, post_path(t.id)
