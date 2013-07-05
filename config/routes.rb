@@ -1,16 +1,19 @@
 WatsonBlog::Application.routes.draw do
 
-  get '/posts' => 'posts#index'
+  get '/posts' => 'posts#index', as: 'all_posts'
 
-  get '/post/:id' => 'posts#show', as: 'post'
+  get '/posts/new' => 'posts#new', as: 'post_new'
 
-  get '/posts/new' => 'posts#new'
+  get '/posts/:id' => 'posts#show', as: 'post'
 
   post '/posts' => 'posts#create' 
 
-  get '/posts/:id/edit' => 'posts#edit'
+  get '/posts/:id/edit' => 'posts#edit', as: 'edit'
 
-  put '/post/:id' => 'posts#update'
+  put '/posts/:id' => 'posts#update' 
+
+  delete '/posts/:id' => 'posts#destroy'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
