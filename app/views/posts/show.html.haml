@@ -1,7 +1,12 @@
 
 %h1= "#{@name}'s Blog"
 
+%a{:href => "http://www.xhtml-css-code.com/html/html5-and-the-improved-task-manager-todoist/"} HTML5 and the Improved Task Manager 'Todoist'
+.box
+  %iframe{:height => "500px", :src => "http://www.xhtml-css-code.com/html/html5-and-the-improved-task-manager-todoist/", :width => "900px"}
+
 %h3= @post.title
 %p= @post.body
 %p= link_to 'Edit', edit_path
+%p= link_to 'Destroy', @post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

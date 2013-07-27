@@ -1,5 +1,7 @@
 WatsonBlog::Application.routes.draw do
 
+  root :to => 'posts#index'
+
   get '/posts' => 'posts#index', as: 'all_posts'
 
   get '/posts/new' => 'posts#new', as: 'post_new'
@@ -12,7 +14,7 @@ WatsonBlog::Application.routes.draw do
 
   put '/posts/:id' => 'posts#update' 
 
-  delete '/posts/:id' => 'posts#destroy'
+  delete '/posts/:id' => 'posts#destroy', as: 'delete' 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
